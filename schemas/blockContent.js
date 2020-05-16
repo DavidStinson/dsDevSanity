@@ -72,9 +72,6 @@ export default {
           options: {
             isHighlighted: true,
           },
-          options: {
-            isHighlighted: true,
-          },
         },
       ],
     },
