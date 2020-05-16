@@ -67,10 +67,8 @@ export default {
       title: "Updated Date",
       type: "date",
       validation: (Rule) =>
-        Rule.min(
-          Rule.valueOfField("publishedDate").error(
-            "Updates may not occur before the Published Date"
-          )
+        Rule.min(Rule.valueOfField("publishedDate")).error(
+          "Updates may not occur before the Published Date"
         ),
     },
     {
