@@ -30,32 +30,10 @@ export default {
       of: [{ type: "reference", to: { type: "author" } }],
     },
     {
+      type: "imageObj",
+      description: "The main image for this post",
+      title: "Hero Image",
       name: "heroImage",
-      description: "The main image for this post.",
-      title: "Hero image",
-      type: "image",
-      options: {
-        hotspot: true,
-      },
-      fields: [
-        {
-          name: "alt",
-          description:
-            "Alt text helps visitors that are unable to see or load images for any reason.",
-          type: "string",
-          title: "Alt Text",
-          validation: (Rule) =>
-            Rule.required()
-              .max(124)
-              .error("Don't make the alt text longer than 120 characters."),
-          options: {
-            isHighlighted: true,
-          },
-          options: {
-            isHighlighted: true,
-          },
-        },
-      ],
     },
     {
       name: "topics",
@@ -122,7 +100,7 @@ export default {
     select: {
       title: "title",
       author: "author.name",
-      media: "heroImage",
+      media: "heroImage.image",
     },
     prepare(selection) {
       const { author } = selection;
