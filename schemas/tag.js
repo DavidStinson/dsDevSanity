@@ -15,6 +15,23 @@ export default {
       description: "Provide an optional image for this tag",
       title: "Image",
       type: "image",
+      fields: [
+        {
+          name: "alt",
+          type: "string",
+          title: "Alt Text",
+          validation: (Rule) =>
+            Rule.required()
+              .max(124)
+              .error("Don't make the alt text longer than 120 characters."),
+          options: {
+            isHighlighted: true,
+          },
+          options: {
+            isHighlighted: true,
+          },
+        },
+      ],
     },
   ],
 };

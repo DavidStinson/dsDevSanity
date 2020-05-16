@@ -15,8 +15,7 @@ export default {
       description: "The uri of this post",
       title: "Slug",
       type: "slug",
-      validation: (Rule) =>
-        Rule.required(),
+      validation: (Rule) => Rule.required(),
       options: {
         source: "title",
         maxLength: 96,
@@ -38,6 +37,23 @@ export default {
       options: {
         hotspot: true,
       },
+      fields: [
+        {
+          name: "alt",
+          type: "string",
+          title: "Alt Text",
+          validation: (Rule) =>
+            Rule.required()
+              .max(124)
+              .error("Don't make the alt text longer than 120 characters."),
+          options: {
+            isHighlighted: true,
+          },
+          options: {
+            isHighlighted: true,
+          },
+        },
+      ],
     },
     {
       name: "topics",
