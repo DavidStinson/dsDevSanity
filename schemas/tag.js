@@ -8,6 +8,7 @@ export default {
       description: "The title for this tag",
       title: "Title",
       type: "string",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "image",
