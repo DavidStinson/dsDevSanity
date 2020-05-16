@@ -5,15 +5,17 @@ export default {
   fields: [
     {
       name: "title",
+      description: "The title for this post",
       title: "Title",
       type: "string",
-      description: "The title for this post"
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "slug",
       description: "The uri of this post",
       title: "Slug",
       type: "slug",
+      validation: (Rule) => Rule.required().max(96),
       options: {
         source: "title",
         maxLength: 96,
@@ -24,7 +26,8 @@ export default {
       description: "Author or authors of this post",
       title: "Author",
       type: "array",
-      of: [{ type: "reference", to: {type: "author"} }],
+      validation: (Rule) => Rule.required(),
+      of: [{ type: "reference", to: { type: "author" } }],
     },
     {
       name: "heroImage",
@@ -40,6 +43,7 @@ export default {
       description: "Broad topics of this post",
       title: "Topics",
       type: "array",
+      validation: (Rule) => Rule.required(),
       of: [{ type: "reference", to: { type: "topic" } }],
     },
     {
@@ -54,14 +58,14 @@ export default {
       description: "The original publish date of this post",
       title: "Published Date",
       type: "date",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "updatedDate",
       description: "The date of the most recent update to this post, if any",
       title: "Updated Date",
       type: "date",
-      validation: (Rule) =>
-        Rule.required().min(Rule.valueOfField("publishedDate")),
+      validation: (Rule) => Rule.min(Rule.valueOfField("publishedDate")),
     },
     {
       name: "bodyExcerpt",
@@ -74,6 +78,7 @@ export default {
       description: "The main content of this post",
       title: "Body",
       type: "blockContent",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "githubLink",
