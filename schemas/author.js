@@ -15,7 +15,8 @@ export default {
       description: "The uri of this author",
       title: "Slug",
       type: "slug",
-      validation: (Rule) => Rule.required().max(96),
+      validation: (Rule) =>
+        Rule.required().max(96).error("Must be shorter than 96 characters"),
       options: {
         source: "name",
         maxLength: 96,

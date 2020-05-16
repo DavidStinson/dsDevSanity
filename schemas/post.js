@@ -15,7 +15,8 @@ export default {
       description: "The uri of this post",
       title: "Slug",
       type: "slug",
-      validation: (Rule) => Rule.required().max(96),
+      validation: (Rule) =>
+        Rule.required().max(96).error("Must be shorter than 96 characters"),
       options: {
         source: "title",
         maxLength: 96,
@@ -65,7 +66,12 @@ export default {
       description: "The date of the most recent update to this post, if any",
       title: "Updated Date",
       type: "date",
-      validation: (Rule) => Rule.min(Rule.valueOfField("publishedDate")),
+      validation: (Rule) =>
+        Rule.min(
+          Rule.valueOfField("publishedDate").error(
+            "Updates may not occur before the Published Date"
+          )
+        ),
     },
     {
       name: "bodyExcerpt",
