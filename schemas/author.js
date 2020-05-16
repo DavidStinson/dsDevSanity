@@ -16,7 +16,7 @@ export default {
       title: "Slug",
       type: "slug",
       validation: (Rule) =>
-        Rule.required().max(96).error("Must be shorter than 96 characters"),
+        Rule.required(),
       options: {
         source: "name",
         maxLength: 96,
