@@ -36,8 +36,8 @@ export default {
         decorators: [
           { title: "Strong", value: "strong" },
           { title: "Emphasis", value: "em" },
-          { title: "Code", value: "code"},
-          { title: "Strike", value: "strike-through"}
+          { title: "Code", value: "code" },
+          { title: "Strike", value: "strike-through" },
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
@@ -53,6 +53,7 @@ export default {
               },
             ],
           },
+
         ],
       },
     },
@@ -60,24 +61,14 @@ export default {
     // primitive types such as 'string' and 'number' in the same array
     // as a block type.
     {
-      type: "image",
-      options: { hotspot: true },
-      fields: [
-        {
-          name: "alt",
-          description:
-            "Alt text helps visitors that are unable to see or load images for any reason.",
-          type: "string",
-          title: "Alt Text",
-          validation: (Rule) =>
-            Rule.required()
-              .max(124)
-              .error("Don't make the alt text longer than 120 characters."),
-          options: {
-            isHighlighted: true,
-          },
-        },
-      ],
+      type: "imageObj",
+      value: "image",
+      title: "Image",
+    },
+    {
+      type: "code",
+      name: "code",
+      title: "Code Block"
     },
   ],
 };

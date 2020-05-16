@@ -10,7 +10,7 @@ import topic from "./topic";
 import post from "./post";
 import author from "./author";
 import tag from "./tag";
-import imageObj from "./imageObj"
+import imageObj from "./components/imageObj"
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
