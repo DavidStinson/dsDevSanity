@@ -11,6 +11,17 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: "slug",
+      description: "The uri of this topic",
+      title: "Slug",
+      type: "slug",
+      validation: (Rule) => Rule.required(),
+      options: {
+        source: "title",
+        maxLength: 32,
+      },
+    },
+    {
       type: "imageObj",
       description: "Provide an optional image for this topic",
       title: "Topic Image",
