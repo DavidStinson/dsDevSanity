@@ -22,9 +22,9 @@ export default {
       },
     },
     {
-      name: "author",
+      name: "authors",
       description: "Author or authors of this post",
-      title: "Author",
+      title: "Authors",
       type: "array",
       validation: (Rule) => Rule.required(),
       of: [{ type: "reference", to: { type: "author" } }],
