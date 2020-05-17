@@ -36,12 +36,12 @@ export default {
       name: "heroImage",
     },
     {
-      name: "topics",
-      description: "Broad topics of this post",
-      title: "Topics",
-      type: "array",
+      name: "topic",
+      description: "The overall topic of this post",
+      title: "Topic",
+      type: "reference",
       validation: (Rule) => Rule.required(),
-      of: [{ type: "reference", to: { type: "topic" } }],
+      to: { type: "topic" },
     },
     {
       name: "tags",
@@ -56,6 +56,9 @@ export default {
       title: "Published Date",
       type: "date",
       validation: (Rule) => Rule.required(),
+      options: {
+        dateFormat: "dddd MMM Do YYYY",
+      },
     },
     {
       name: "updatedDate",
@@ -66,6 +69,9 @@ export default {
         Rule.min(Rule.valueOfField("publishedDate")).error(
           "Updates may not occur before the Published Date"
         ),
+      options: {
+        dateFormat: "dddd, MMM Do YYYY",
+      },
     },
     {
       name: "bodyExcerpt",
