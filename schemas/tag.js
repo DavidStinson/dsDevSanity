@@ -20,7 +20,7 @@ export default {
   preview: {
     select: {
       title: "title",
-      media: "tagImage.image",
+      media: "tagImage",
     },
   },
 };

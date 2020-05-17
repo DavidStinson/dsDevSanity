@@ -31,7 +31,7 @@ export default {
   preview: {
     select: {
       title: "title",
-      media: "topicImage.image",
+      media: "topicImage",
     },
   },
 };

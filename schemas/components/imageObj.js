@@ -1,15 +1,11 @@
 export default {
   name: "imageObj",
-  type: "object",
+  type: "image",
+  validation: (Rule) => Rule.required(),
+  options: {
+    hotspot: true,
+  },
   fields: [
-    {
-      name: "image",
-      type: "image",
-      validation: (Rule) => Rule.required(),
-      options: {
-        hotspot: true,
-      },
-    },
     {
       name: "alt",
       description:
@@ -20,12 +16,18 @@ export default {
         Rule.required()
           .max(120)
           .error("Don't make the alt text longer than 120 characters."),
+      options: {
+        isHighlighted: true,
+      },
     },
     {
       name: "attr",
       description: "Any necessary image attributation",
       type: "string",
       title: "Attributation",
+      options: {
+        isHighlighted: true,
+      },
     },
   ],
 };
