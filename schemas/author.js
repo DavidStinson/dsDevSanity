@@ -24,6 +24,13 @@ export default {
       type: "string",
       validation: (Rule) => Rule.required(),
     },
+    {
+      name: "socialLink",
+      description: "The primary social link for this person",
+      title: "Social Link",
+      type: "url",
+      scheme: ["https"],
+    },
   ],
   preview: {
     select: {
