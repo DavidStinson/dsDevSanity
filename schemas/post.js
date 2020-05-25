@@ -11,6 +11,12 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: "emojigo",
+      description: "An optional emoji logo for this post",
+      title: "Emojigo",
+      type: "string",
+    },
+    {
       name: "slug",
       description: "The uri of this post",
       title: "Slug",
